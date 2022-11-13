@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameOverScreen: {fileID: 2045876553}
   ScoreText: {fileID: 2048223340}
+  initialScrollSpeed: 8
 --- !u!4 &457801721
 Transform:
   m_ObjectHideFlags: 0
