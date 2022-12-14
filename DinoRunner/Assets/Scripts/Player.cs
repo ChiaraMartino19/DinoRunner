@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float radius;
     private Rigidbody2D dinoRb;
     private Animator dinoAnimator;
+    public GameObject SoundJump;
+    public GameObject SoundDead;
     void Start()
     {
         dinoRb = GetComponent<Rigidbody2D>();
@@ -24,6 +26,7 @@ public class Player : MonoBehaviour
         dinoAnimator.SetBool ("isGrounded", isGrounded);
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Instantiate(SoundJump);
             if (isGrounded)
             {
                 dinoRb.AddForce(Vector2.up * upForce);
@@ -43,6 +46,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstaculo"))
         {
+            Instantiate(SoundDead);
             gameManager.Instance.ShowGameOverScreen();
             dinoAnimator.SetTrigger("Die");
             Time.timeScale = 0f;
